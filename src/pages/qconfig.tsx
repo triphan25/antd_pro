@@ -1,0 +1,13 @@
+// export const ID_DEVICE_CENTER = 'TEST-TTCAMBIEN001';
+// export const ID_DEVICE_GIENG1 = 'TEST-BOMGIENG01';
+// export const ID_DEVICE_GIENG2 = 'TEST-BOMGIENG02';
+// export const ID_DEVICE_GIENG3 = 'TEST-BOMGIENG03';
+// export const ID_DEVICE_OUT = 'TEST-M1M5';
+
+export const ID_DEVICE_CENTER = 'TTCAMBIEN001';
+export const ID_DEVICE_GIENG1 = 'BOMGIENG01';
+export const ID_DEVICE_GIENG2 = 'BOMGIENG02';
+export const ID_DEVICE_GIENG3 = 'BOMGIENG03';
+export const ID_DEVICE_OUT = 'M1M5';
+export const ID_DEVICE_CENTER_NEW = 'TU_DIEU_KHIEN_TRUNG_TAM';
+export const ID_DEVICE_PUMP_NEW = 'BOM_GIENG_2';
