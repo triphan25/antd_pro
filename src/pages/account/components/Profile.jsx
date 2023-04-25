@@ -1,5 +1,5 @@
 import { Button, Typography } from 'antd';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, Row, Col, Form, Input, message, Modal } from 'antd';
 const { Item } = Form;
 import moment from 'moment';
@@ -8,6 +8,7 @@ const { Text } = Typography;
 import { userUpdateInfor } from '@/services/accounts';
 import { getAccountProfile } from '@/services/accounts';
 import { userChangePassword } from '@/services/accounts';
+import BaseModel from '@/components/BaseModel';
 
 const AccountProfile = () => {
   const [loading, setLoading] = useState(false);
@@ -15,6 +16,7 @@ const AccountProfile = () => {
   const [formReset] = Form.useForm();
   const [user, setUser] = useState({});
   const [isOpen, setOpen] = useState(false);
+  const modelRef = useRef(null);
 
   const refreshData = async () => {
     try {
@@ -226,6 +228,28 @@ const AccountProfile = () => {
           </Col>
         </Row>
       </Form>
+      <Button onClick={(e) => modelRef.current.showModel()}>Open model</Button>
+      <BaseModel
+        title="text"
+        ref={modelRef}
+        submitter={{
+          render: (props, defaultDoms) => {
+            return [
+              ...defaultDoms,
+              <Button
+                key="ok"
+                onClick={() => {
+                  props.submit();
+                }}
+              >
+                test
+              </Button>,
+            ];
+          },
+        }}
+      >
+        text
+      </BaseModel>
     </Card>
   );
 };
