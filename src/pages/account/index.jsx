@@ -38,6 +38,7 @@ const columns = [
     title: 'Tuổi',
     dataIndex: 'age',
     sorter: (a, b) => a.age - b.age,
+    search: false,
   },
   {
     title: 'Lớp',
