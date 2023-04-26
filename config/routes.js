@@ -43,12 +43,22 @@ export default [
                 redirect: '/dashboard',
                 // component: './dashboard',
               },
-
               {
                 name: 'Tài khoản',
                 icon: 'user',
                 path: '/account',
                 component: './account',
+              },
+              {
+                name: 'Chat',
+                icon: 'message',
+                routes: [
+                  {
+                    name: 'chat room',
+                    path: '/chat',
+                    component: './demo',
+                  },
+                ],
               },
               {
                 component: './404',
