@@ -9,6 +9,7 @@ import { userUpdateInfor } from '@/services/accounts';
 import { getAccountProfile } from '@/services/accounts';
 import { userChangePassword } from '@/services/accounts';
 import BaseModel from '@/components/BaseModel';
+import BaseInput from '@/components/BaseInput';
 import BaseSelect from '@/components/BaseSelect';
 
 const AccountProfile = () => {
@@ -261,6 +262,8 @@ const AccountProfile = () => {
       >
         text
       </BaseModel>
+
+      <BaseInput name="test" label="test" onChange={(e) => console.log(e.target.value)} />
       <BaseSelect label="Code" name="code" onChange={handleChange} options={options} />
     </Card>
   );
