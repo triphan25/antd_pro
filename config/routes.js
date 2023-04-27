@@ -49,21 +49,23 @@ export default [
                 path: '/account',
                 component: './account',
               },
+
               {
+                path: '/chat',
                 name: 'Chat',
                 path: '/chat',
                 icon: 'message',
                 routes: [
                   {
                     name: 'chat room',
-                    path: '/chat',
+                    path: '/chat/chat123',
                     component: './demo',
                   },
                 ],
               },
               {
                 name: 'Đăng ký dịch vụ, tiện ích',
-                icon: 'user',
+                icon: 'message',
                 path: '/registerServices',
                 component: './registerServices',
               },
