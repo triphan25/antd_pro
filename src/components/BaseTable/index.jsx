@@ -13,7 +13,7 @@ const BaseTable = ({ data, columns, headerTitle }) => {
         showTotal: false,
       }}
       columns={columns}
-      //   search={false}
+      search={false}
       dateFormatter="string"
       headerTitle={headerTitle}
       options={{

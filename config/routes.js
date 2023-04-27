@@ -61,7 +61,16 @@ export default [
                 ],
               },
               {
-                component: './404',
+                name: 'Đăng ký dịch vụ, tiện ích',
+                icon: 'user',
+                path: '/registerServices',
+                component: './registerServices',
+              },
+              {
+                name: 'Tài khoản',
+                icon: 'user',
+                path: '/registerServices',
+                component: './registerServices',
               },
             ],
           },
@@ -71,8 +80,5 @@ export default [
         ],
       },
     ],
-  },
-  {
-    component: './404',
   },
 ];
