@@ -78,7 +78,8 @@
     "react-image-gallery": "^1.2.7",
     "react-use-websocket": "^4.2.0",
     "umi": "^3.5.0",
-    "umi-request": "^1.0.8"
+    "umi-request": "^1.0.8",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@ant-design/pro-cli": "^1.0.28",

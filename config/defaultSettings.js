@@ -2,9 +2,10 @@ const proSettings = {
   navTheme: 'light',
   // primaryColor: '#1890ff',
   primaryColor: '#5eccae',
-  layout: 'side',
+  layout: 'mix',
+  // splitMenus: true, //đưa side bar lên top
   contentWidth: 'Fluid',
-  fixedHeader: false,
+  fixedHeader: true,
   fixSiderbar: true,
   colorWeak: false,
   title: 'EBST',

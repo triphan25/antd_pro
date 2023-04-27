@@ -7,7 +7,7 @@ const Message = ({ key, message, isOwnMessage }) => {
   const { text, img, video, oldValues, avartar } = message;
 
   return (
-    <div className={`${styles.message_box} ${isOwnMessage && styles.own}`}>
+    <div className={`${styles.message_box} ${isOwnMessage && styles.own}`} key={key}>
       {avartar ? (
         <Avatar size={20} src={<img src={avartar} alt="avatar" />} className={styles.avatar} />
       ) : (

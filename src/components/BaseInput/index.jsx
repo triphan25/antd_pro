@@ -1,9 +1,18 @@
 import React from 'react';
 import { ProFormText } from '@ant-design/pro-components';
 
-const BaseInput = ({ name, label, placeholder = '', titleTooltip, onChange, required = false }) => {
+const BaseInput = ({
+  value,
+  name,
+  label,
+  placeholder = '',
+  titleTooltip,
+  onChange,
+  required = false,
+}) => {
   return (
     <ProFormText
+      value={value}
       name={name}
       label={label}
       tooltip={titleTooltip}
