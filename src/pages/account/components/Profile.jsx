@@ -10,6 +10,7 @@ import { getAccountProfile } from '@/services/accounts';
 import { userChangePassword } from '@/services/accounts';
 import BaseModel from '@/components/BaseModel';
 import BaseInput from '@/components/BaseInput';
+import BaseSelect from '@/components/BaseSelect';
 
 const AccountProfile = () => {
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,16 @@ const AccountProfile = () => {
   const [user, setUser] = useState({});
   const [isOpen, setOpen] = useState(false);
   const modelRef = useRef(null);
+  const options = [
+    { label: 'Tất cả', value: 'all' },
+    { label: 'Mở', value: 'open' },
+    { label: 'Đóng', value: 'closed' },
+    { label: 'Xử lý', value: 'processing' },
+  ];
+
+  const handleChange = (e) => {
+    console.log('ggsgsg', e);
+  };
 
   const refreshData = async () => {
     try {
@@ -253,6 +264,7 @@ const AccountProfile = () => {
       </BaseModel>
 
       <BaseInput name="test" label="test" onChange={(e) => console.log(e.target.value)} />
+      <BaseSelect label="Code" name="code" onChange={handleChange} options={options} />
     </Card>
   );
 };
