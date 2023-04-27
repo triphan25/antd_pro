@@ -51,6 +51,7 @@ export default [
               },
               {
                 name: 'Chat',
+                path: '/chat',
                 icon: 'message',
                 routes: [
                   {
@@ -62,12 +63,6 @@ export default [
               },
               {
                 name: 'Đăng ký dịch vụ, tiện ích',
-                icon: 'user',
-                path: '/registerServices',
-                component: './registerServices',
-              },
-              {
-                name: 'Tài khoản',
                 icon: 'user',
                 path: '/registerServices',
                 component: './registerServices',
