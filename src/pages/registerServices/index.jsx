@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import BaseTable from '@/components/BaseTable';
+import { WechatOutlined } from '@ant-design/icons';
+import BaseModel from '@/components/BaseModel';
+import ChatRoom from '@/components/ChatRoom';
 
 const data = [
   {
@@ -52,79 +55,100 @@ const data = [
   },
 ];
 
-const columns = [
-  {
-    title: 'Trạng thái',
-    dataIndex: 'status',
-    render: (_) => <a>{_}</a>,
-    search: false,
-  },
-  {
-    title: 'Khối',
-    dataIndex: 'block',
-    search: false,
-  },
-  {
-    title: 'Tầng/lầu',
-    dataIndex: 'floor',
-    search: false,
-  },
-  {
-    title: 'Mã vị trí',
-    dataIndex: 'positon',
-    search: false,
-  },
-  {
-    title: 'Tên khách hàng',
-    dataIndex: 'customerName',
-    search: false,
-  },
-  {
-    title: 'Dịch vụ đăng ký',
-    dataIndex: 'registrationService',
-    search: false,
-  },
-  {
-    title: 'Ngày bắt đầu sử dụng',
-    dataIndex: 'startDate',
-    search: false,
-  },
-  {
-    title: 'Ngày đăng ký',
-    dataIndex: 'registerDate',
-    search: false,
-  },
-  {
-    title: 'Số lượng',
-    dataIndex: 'number',
-    search: false,
-  },
-  {
-    title: 'Số tháng',
-    dataIndex: 'months',
-    search: false,
-  },
-  {
-    title: 'Đơn giá',
-    dataIndex: 'price',
-    search: false,
-  },
-  {
-    title: 'Thành tiền',
-    dataIndex: 'totalPrice',
-    search: false,
-  },
-  {
-    title: 'Ghi chú',
-    dataIndex: 'note',
-    search: false,
-  },
-];
-
 const RegisterServices = () => {
+  const refDetail = useRef(null);
+
+  const columns = [
+    {
+      title: 'Trạng thái',
+      dataIndex: 'status',
+      // render: (_) => <a>{_}</a>,
+      search: false,
+    },
+    {
+      title: 'Khối',
+      dataIndex: 'block',
+      search: false,
+    },
+    {
+      title: 'Tầng/lầu',
+      dataIndex: 'floor',
+      search: false,
+    },
+    {
+      title: 'Mã vị trí',
+      dataIndex: 'positon',
+      search: false,
+    },
+    {
+      title: 'Tên khách hàng',
+      dataIndex: 'customerName',
+      search: false,
+    },
+    {
+      title: 'Dịch vụ đăng ký',
+      dataIndex: 'registrationService',
+      search: false,
+    },
+    {
+      title: 'Ngày bắt đầu sử dụng',
+      dataIndex: 'startDate',
+      search: false,
+    },
+    {
+      title: 'Ngày đăng ký',
+      dataIndex: 'registerDate',
+      search: false,
+    },
+    {
+      title: 'Số lượng',
+      dataIndex: 'number',
+      search: false,
+    },
+    {
+      title: 'Số tháng',
+      dataIndex: 'months',
+      search: false,
+    },
+    {
+      title: 'Đơn giá',
+      dataIndex: 'price',
+      search: false,
+    },
+    {
+      title: 'Thành tiền',
+      dataIndex: 'totalPrice',
+      search: false,
+    },
+    {
+      title: 'Ghi chú',
+      dataIndex: 'note',
+      search: false,
+    },
+    {
+      title: '',
+      fixed: 'right',
+      key: 'option',
+      valueType: 'option',
+      width: 80,
+      render: () => [
+        <WechatOutlined
+          style={{ color: 'rgb(113, 210, 193)', cursor: 'pointer' }}
+          onClick={() => refDetail.current.showModel()}
+        />,
+      ],
+    },
+  ];
+
   return (
     <div>
       <BaseTable data={data} columns={columns} headerTitle="Đăng ký dịch vụ, tiện ích" />
+
+      <BaseModel title="Chi tiết đăng ký" ref={refDetail}>
+        <div style={{ height: '60vh', boxSizing: 'border-box' }}>
+          <ChatRoom />
+        </div>
+      </BaseModel>
     </div>
   );
 };
