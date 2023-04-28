@@ -69,6 +69,18 @@ export default [
                 path: '/registerServices',
                 component: './registerServices',
               },
+              {
+                path: '/operation',
+                name: 'Vận hành',
+                icon: 'file-done',
+                routes: [
+                  {
+                    name: 'Yêu cầu sữa chữa',
+                    path: '/operation/operateRepair',
+                    component: './operation',
+                  },
+                ],
+              },
             ],
           },
           {
