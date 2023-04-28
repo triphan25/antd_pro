@@ -2,6 +2,7 @@ const proSettings = {
   navTheme: 'light',
   // primaryColor: '#1890ff',
   primaryColor: '#00A78C',
+  logo: 'https://taisei.com.vn/upload/hinhanh/logo-ts-0899.png',
   layout: 'mix',
   // splitMenus: true, //đưa side bar lên top
   contentWidth: 'Fluid',
