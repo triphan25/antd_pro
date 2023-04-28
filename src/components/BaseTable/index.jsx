@@ -1,11 +1,11 @@
 import React from 'react';
-import { DownOutlined } from '@ant-design/icons';
 import { ProTable, TableDropdown, ProColumns } from '@ant-design/pro-components';
-import { Button } from 'antd';
 
 const BaseTable = ({ data, columns, headerTitle }) => {
   return (
     <ProTable
+      scroll={{ x: 'scroll' }}
+      bordered
       dataSource={data}
       rowKey="key"
       pagination={{
