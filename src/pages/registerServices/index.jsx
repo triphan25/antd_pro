@@ -144,14 +144,12 @@ const RegisterServices = () => {
       key: 'option',
       valueType: 'option',
       width: 80,
-      align: 'center',
+      align: 'middle',
       render: () => [
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <WechatOutlined
-            style={{ color: 'rgb(113, 210, 193)', cursor: 'pointer', fontSize: '20px' }}
-            onClick={() => refDetail.current.showModel()}
-          />
-        </div>,
+        <WechatOutlined
+          style={{ color: 'rgb(113, 210, 193)', cursor: 'pointer', fontSize: '20px' }}
+          onClick={() => refDetail.current.showModel()}
+        />,
       ],
     },
   ];
