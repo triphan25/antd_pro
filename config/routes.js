@@ -49,8 +49,8 @@ export default [
                 path: '/account',
                 component: './account',
               },
-
               {
+                hideInMenu: true,
                 path: '/chat',
                 name: 'Chat',
                 path: '/chat',
