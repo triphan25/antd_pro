@@ -79,6 +79,11 @@ export default [
                     path: '/operation/operateRepair',
                     component: './operation',
                   },
+                  {
+                    name: 'Quản lý phản hồi/sự cố',
+                    path: '/operation/incidentResponse',
+                    component: './operation/incidentResponse',
+                  },
                 ],
               },
             ],
