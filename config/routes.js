@@ -64,10 +64,21 @@ export default [
                 ],
               },
               {
-                name: 'Đăng ký dịch vụ, tiện ích',
-                icon: 'message',
-                path: '/registerServices',
-                component: './registerServices',
+                name: 'Đăng ký',
+                icon: 'form',
+                path: '/register',
+                routes: [
+                  {
+                    name: 'Dịch vụ, tiện ích',
+                    path: '/register/services',
+                    component: './registerServices',
+                  },
+                  {
+                    name: 'Thi công',
+                    path: '/register/construction',
+                    component: './constructionRegister',
+                  },
+                ],
               },
               {
                 path: '/operation',

@@ -92,7 +92,7 @@ const BasicLayout = (props) => {
   return (
     <ThemeProvider>
       <ProLayout
-        siderWidth={250}
+        siderWidth={200}
         // logo={logo}
         title={'EBST'}
         {...props}

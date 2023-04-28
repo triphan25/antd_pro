@@ -144,7 +144,7 @@ const RegisterServices = () => {
       key: 'option',
       valueType: 'option',
       width: 80,
-      align: 'middle',
+      align: 'center',
       render: () => [
         <WechatOutlined
           style={{ color: 'rgb(113, 210, 193)', cursor: 'pointer', fontSize: '20px' }}
