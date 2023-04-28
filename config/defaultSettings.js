@@ -1,7 +1,7 @@
 const proSettings = {
   navTheme: 'light',
   // primaryColor: '#1890ff',
-  primaryColor: '#5eccae',
+  primaryColor: '#00A78C',
   layout: 'mix',
   // splitMenus: true, //đưa side bar lên top
   contentWidth: 'Fluid',
