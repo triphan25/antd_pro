@@ -4,7 +4,7 @@ import { ProTable, TableDropdown, ProColumns } from '@ant-design/pro-components'
 const BaseTable = ({ data, columns, headerTitle }) => {
   return (
     <ProTable
-      scroll={{ x: 'scroll' }}
+      scroll={{ x: 1500, y: 450 }}
       bordered
       dataSource={data}
       rowKey="key"
