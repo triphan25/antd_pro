@@ -4,6 +4,7 @@ import React from 'react';
 import { history, connect } from 'umi';
 import HeaderDropdown from '../HeaderDropdown';
 import styles from './index.less';
+import ChangePassword from '@/pages/User/ChangePassword';
 
 class AvatarDropdown extends React.Component {
   onMenuClick = (event) => {
@@ -20,18 +21,23 @@ class AvatarDropdown extends React.Component {
       return;
     }
 
-    // if (key === 'changePassword') {
-    //   onOpenChangePassworfForm()
+    if (key === 'changePassword') {
+      dispatch({
+        type: 'user/openChangePasswordModel',
+      });
 
-    //   return;
-    // }
+      return;
+    }
 
     history.push(`/account/${key}`);
     // history.push(`/user/${key}`);
   };
 
-  onOpenChangePassworfForm = (callback) => {
-    callback();
+  onCloseChangePasswordModel = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'user/closeChangePasswordModel',
+    });
   };
 
   render() {
@@ -40,10 +46,9 @@ class AvatarDropdown extends React.Component {
         avatar: '',
         name: '',
       },
+      isChangePassword = false,
       menu,
     } = this.props;
-
-    <changePassword />;
 
     const menuHeaderDropdown = (
       <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
@@ -61,24 +66,32 @@ class AvatarDropdown extends React.Component {
         )}
         {menu && <Menu.Divider />}
 
-        <Menu.Item key="logout">
-          <LogoutOutlined />
-          Đăng xuất
-        </Menu.Item>
         <Menu.Item key="changePassword">
           <EditOutlined />
           Đổi mật khẩu
         </Menu.Item>
+
+        <Menu.Item key="logout">
+          <LogoutOutlined />
+          Đăng xuất
+        </Menu.Item>
       </Menu>
     );
     return currentUser && currentUser.name ? (
-      <HeaderDropdown overlay={menuHeaderDropdown}>
-        <span className={`${styles.action} ${styles.account}`}>
-          {/* <Avatar size="small" className={styles.avatar} src={currentUser.avatar} alt="avatar" /> */}
-          <UserOutlined className={styles.avatar} />
-          <span className={`${styles.name} anticon`}>{currentUser.name}</span>
-        </span>
-      </HeaderDropdown>
+      <>
+        <HeaderDropdown overlay={menuHeaderDropdown}>
+          <span className={`${styles.action} ${styles.account}`}>
+            {/* <Avatar size="small" className={styles.avatar} src={currentUser.avatar} alt="avatar" /> */}
+            <UserOutlined className={styles.avatar} />
+            <span className={`${styles.name} anticon`}>{currentUser.name}</span>
+          </span>
+        </HeaderDropdown>
+
+        <ChangePassword
+          isOpen={isChangePassword}
+          onCloseChangePasswordModel={this.onCloseChangePasswordModel}
+        />
+      </>
     ) : (
       <span className={`${styles.action} ${styles.account}`}>
         <Spin
@@ -95,4 +108,5 @@ class AvatarDropdown extends React.Component {
 
 export default connect(({ user }) => ({
   currentUser: user.currentUser,
+  isChangePassword: user.isChangePassword,
 }))(AvatarDropdown);

@@ -3,37 +3,37 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Card, Row, Col, Form, Input, message, Modal } from 'antd';
 const { Item } = Form;
 
-const ChangePassword = () => {
+const ChangePassword = ({ isOpen, onCloseChangePasswordModel }) => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const [formReset] = Form.useForm();
-  const [isOpen, setOpen] = useState(false);
+  // const [isOpen, setOpen] = useState(false);
 
-  const showModal = () => {
-    setOpen(true);
-  };
-  const hideModal = () => {
-    setOpen(false);
-  };
+  // const showModal = () => {
+  //   setOpen(true);
+  // };
+  // const hideModal = () => {
+  //   setOpen(false);
+  // };
   const handleOk = () => {
     formReset.submit();
   };
-  const handleCancel = () => {
-    hideModal();
-  };
+  // const handleCancel = () => {
+  //   hideModal();
+  // };
 
   return (
     <Form>
       <Row>
         <Col>
-          <Button danger onClick={showModal}>
+          {/* <Button danger onClick={showModal}>
             Đổi mật khẩu
-          </Button>
+          </Button> */}
           <Modal
             title={`Đổi mật khẩu`}
             visible={isOpen}
             onOk={handleOk}
-            onCancel={handleCancel}
+            onCancel={onCloseChangePasswordModel}
             width={700}
             confirmLoading={loading}
           >

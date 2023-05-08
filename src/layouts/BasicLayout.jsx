@@ -94,7 +94,7 @@ const BasicLayout = (props) => {
       <ProLayout
         siderWidth={200}
         // logo={logo}
-        title={'EBST'}
+        title={''}
         {...props}
         {...settings}
         onCollapse={handleMenuCollapse}

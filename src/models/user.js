@@ -5,6 +5,7 @@ const UserModel = {
   namespace: 'user',
   state: {
     currentUser: {},
+    isChangePassword: false,
   },
   effects: {
     *fetch(_, { call, put }) {
@@ -34,6 +35,18 @@ const UserModel = {
         payload: response,
       });
     },
+
+    *openChangePasswordModel(_, { call, put }) {
+      yield put({
+        type: 'hanldeOpenChangePasswordModel',
+      });
+    },
+
+    *closeChangePasswordModel(_, { call, put }) {
+      yield put({
+        type: 'hanldeCloseChangePasswordModel',
+      });
+    },
   },
   reducers: {
     saveCurrentUser(state, action) {
@@ -53,6 +66,12 @@ const UserModel = {
           unreadCount: action.payload.unreadCount,
         },
       };
+    },
+    hanldeOpenChangePasswordModel(state, action) {
+      return { ...state, isChangePassword: true };
+    },
+    hanldeCloseChangePasswordModel(state, action) {
+      return { ...state, isChangePassword: false };
     },
   },
 };

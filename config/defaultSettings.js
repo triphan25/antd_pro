@@ -9,7 +9,7 @@ const proSettings = {
   fixedHeader: true,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'EBST',
+  // title: 'EBST',
   pwa: false,
   iconfontUrl: '',
   menu: { locale: false, defaultOpenAll: false, autoClose: false },
