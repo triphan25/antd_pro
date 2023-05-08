@@ -37,7 +37,7 @@ const GlobalHeaderRight = (props) => {
   return (
     <>
       <div className={className}>
-        {/* <NoticeIcon/> */}
+        <NoticeIcon />
         <Avatar />
         {REACT_APP_ENV && (
           <span>
