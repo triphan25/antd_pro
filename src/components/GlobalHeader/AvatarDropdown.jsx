@@ -1,4 +1,4 @@
-import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import { EditOutlined, LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Menu, Spin } from 'antd';
 import React from 'react';
 import { history, connect } from 'umi';
@@ -8,10 +8,9 @@ import styles from './index.less';
 class AvatarDropdown extends React.Component {
   onMenuClick = (event) => {
     const { key } = event;
+    const { dispatch } = this.props;
 
     if (key === 'logout') {
-      const { dispatch } = this.props;
-
       if (dispatch) {
         dispatch({
           type: 'login/logout',
@@ -21,7 +20,18 @@ class AvatarDropdown extends React.Component {
       return;
     }
 
+    // if (key === 'changePassword') {
+    //   onOpenChangePassworfForm()
+
+    //   return;
+    // }
+
     history.push(`/account/${key}`);
+    // history.push(`/user/${key}`);
+  };
+
+  onOpenChangePassworfForm = (callback) => {
+    callback();
   };
 
   render() {
@@ -32,16 +42,19 @@ class AvatarDropdown extends React.Component {
       },
       menu,
     } = this.props;
+
+    <changePassword />;
+
     const menuHeaderDropdown = (
       <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
         {menu && (
           <Menu.Item key="center">
             <UserOutlined />
-            User
+            user
           </Menu.Item>
         )}
         {menu && (
-          <Menu.Item key="settings">
+          <Menu.Item key="settings" on>
             <SettingOutlined />
             Setting
           </Menu.Item>
@@ -51,6 +64,10 @@ class AvatarDropdown extends React.Component {
         <Menu.Item key="logout">
           <LogoutOutlined />
           Đăng xuất
+        </Menu.Item>
+        <Menu.Item key="changePassword">
+          <EditOutlined />
+          Đổi mật khẩu
         </Menu.Item>
       </Menu>
     );

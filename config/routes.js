@@ -13,6 +13,11 @@ export default [
             component: './User/login',
           },
           {
+            name: 'ChangePassword',
+            path: '/user/ChangePassword',
+            component: './User/ChangePassword',
+          },
+          {
             name: 'register-result',
             icon: 'smile',
             path: '/user/register-result',

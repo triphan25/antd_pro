@@ -242,7 +242,7 @@ const AccountProfile = () => {
       </Form>
       <Button onClick={(e) => modelRef.current.showModel()}>Open model</Button>
       <BaseModel
-        title="text"
+        title="Đổi mật khẩu"
         ref={modelRef}
         submitter={{
           render: (props, defaultDoms) => {

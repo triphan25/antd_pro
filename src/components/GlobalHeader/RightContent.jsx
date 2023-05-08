@@ -16,7 +16,9 @@ import {
   Input,
   Drawer,
   Space,
+  Tag,
 } from 'antd';
+import NoticeIcon from './NoticeIconView';
 
 const ENVTagColor = {
   dev: 'orange',
@@ -35,6 +37,7 @@ const GlobalHeaderRight = (props) => {
   return (
     <>
       <div className={className}>
+        {/* <NoticeIcon/> */}
         <Avatar />
         {REACT_APP_ENV && (
           <span>
