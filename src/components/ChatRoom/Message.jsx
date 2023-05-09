@@ -6,6 +6,10 @@ import styles from './chat.less';
 const Message = ({ key, message, isOwnMessage }) => {
   const { text, img, video, oldValues, avatar } = message;
 
+  const viewFileDetail = (imgUrl) => {
+    window.open(imgUrl, '_blank', 'noreferrer');
+  };
+
   return (
     <div className={`${styles.message_box} ${isOwnMessage && styles.own}`} key={key}>
       {avatar ? (
@@ -24,13 +28,13 @@ const Message = ({ key, message, isOwnMessage }) => {
         )}
 
         {img && (
-          <div className={styles.message_media}>
+          <div className={styles.message_media} onClick={(e) => viewFileDetail(img)}>
             <img src={img} alt="message-img" />
           </div>
         )}
 
         {video && (
-          <div className={styles.message_media}>
+          <div className={styles.message_media} onClick={(e) => viewFileDetail(video)}>
             <video controls>
               <source src={video} />
             </video>
