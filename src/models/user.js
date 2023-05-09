@@ -20,15 +20,17 @@ const UserModel = {
     *fetchCurrent(_, { call, put }) {
       const token = localStorage.getItem('token') || '';
       if (token == '') return {};
-      const { firstName, lastName, userId } = {
+      const { firstName, lastName, userId, avatar } = {
         firstName: 'tri',
         lastName: 'phan',
         userId: '321321',
+        avatar: 'https://luv.vn/wp-content/uploads/2021/08/hinh-anh-gai-xinh-71.jpg',
       };
       // const { firstName, lastName, userId } = jwt_decode(token);
       const response = {
         name: firstName + ' ' + lastName,
         userId,
+        avatar,
       };
       yield put({
         type: 'saveCurrentUser',

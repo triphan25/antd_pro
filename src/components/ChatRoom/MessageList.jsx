@@ -1,10 +1,18 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './chat.less';
 import Message from './Message';
+import { getMessages } from '@/firebase/firebaseService';
 
-const MessageList = ({ messageList }) => {
+const MessageList = () => {
   const containerRef = useRef(null);
-  const userId = '44fa5d5d-a32a-428f-a5a4-12ce0ef375fa';
+  const [messages, setMessages] = useState([]);
+  const userId = '321321w';
+
+  useEffect(() => {
+    const unsubscribe = getMessages('room1', setMessages);
+
+    return unsubscribe;
+  }, []);
 
   useLayoutEffect(() => {
     if (containerRef.current) {
@@ -15,14 +23,8 @@ const MessageList = ({ messageList }) => {
   return (
     <div className={styles.message_list_container} ref={containerRef}>
       <div className={styles.message_body}>
-        {messageList.map((item) => (
-          <Message
-            key={item.id}
-            message={item}
-            isOwnMessage={item.uid === userId}
-            // avartar={item.avartar}
-            // getEditMessage={getEditMessage}
-          />
+        {messages.map((item) => (
+          <Message key={item.id} message={item} isOwnMessage={item.uid === userId} />
         ))}
       </div>
     </div>

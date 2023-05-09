@@ -4,12 +4,12 @@ import { UserOutlined, EditOutlined } from '@ant-design/icons';
 import styles from './chat.less';
 
 const Message = ({ key, message, isOwnMessage }) => {
-  const { text, img, video, oldValues, avartar } = message;
+  const { text, img, video, oldValues, avatar } = message;
 
   return (
     <div className={`${styles.message_box} ${isOwnMessage && styles.own}`} key={key}>
-      {avartar ? (
-        <Avatar size={20} src={<img src={avartar} alt="avatar" />} className={styles.avatar} />
+      {avatar ? (
+        <Avatar size={20} src={<img src={avatar} alt="avatar" />} className={styles.avatar} />
       ) : (
         <Avatar className={styles.avatar} size={20} icon={<UserOutlined />} />
       )}

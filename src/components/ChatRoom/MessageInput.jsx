@@ -4,16 +4,21 @@ import { v4 as uuid } from 'uuid';
 import { Input } from 'antd';
 import { PictureOutlined, SendOutlined, YoutubeOutlined } from '@ant-design/icons';
 import PrviewFilePopup from './PrviewFilePopup';
+import { sendMessage } from '@/firebase/firebaseService';
 
-const MessageInput = () => {
+const MessageInput = ({ user }) => {
   const imgRef = useRef(null);
   const videoRef = useRef(null);
   const [textMessage, setTextMessage] = useState('');
   const [files, setFiles] = useState([]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Ok');
+  const handleSubmit = (e) => {
+    console.log('hihih');
+    e.preventDefault();
+    console.log('hihih');
+    sendMessage('room1', user, textMessage, files);
+    setTextMessage('');
+    setFiles([]);
   };
 
   const onChangeTextMessage = (e) => {
@@ -32,8 +37,6 @@ const MessageInput = () => {
           previewUrl: URL.createObjectURL(file),
         });
       }
-
-      console.log('file', newFiles);
 
       setFiles(newFiles);
     }
@@ -62,7 +65,7 @@ const MessageInput = () => {
       <div className={Styles.action_group}>
         <PictureOutlined onClick={() => imgRef.current.click()} className={Styles.action_img} />
         <YoutubeOutlined onClick={() => videoRef.current.click()} className={Styles.action_video} />
-        <SendOutlined onClick={(e) => handleSubmit(e)} className={Styles.action_send} />
+        <SendOutlined onClick={handleSubmit} className={Styles.action_send} />
       </div>
 
       <input
