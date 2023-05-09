@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Styles from './chat.less';
 import { v4 as uuid } from 'uuid';
-import { Input } from 'antd';
+import { Button, Input } from 'antd';
 import { PictureOutlined, SendOutlined, YoutubeOutlined } from '@ant-design/icons';
 import PrviewFilePopup from './PrviewFilePopup';
 import { sendMessage } from '@/firebase/firebaseService';
@@ -13,9 +13,7 @@ const MessageInput = ({ user }) => {
   const [files, setFiles] = useState([]);
 
   const handleSubmit = (e) => {
-    console.log('hihih');
     e.preventDefault();
-    console.log('hihih');
     sendMessage('room1', user, textMessage, files);
     setTextMessage('');
     setFiles([]);
@@ -56,6 +54,7 @@ const MessageInput = ({ user }) => {
           value={textMessage}
           onChange={onChangeTextMessage}
           allowClear
+          type="text"
         />
         {files.length > 0 && (
           <PrviewFilePopup filesPreview={files} deleteFile={deletePreviewFile} />
