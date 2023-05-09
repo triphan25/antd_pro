@@ -55,6 +55,12 @@ const MessageInput = ({ user }) => {
           onChange={onChangeTextMessage}
           allowClear
           type="text"
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleSubmit(e);
+            }
+          }}
         />
         {files.length > 0 && (
           <PrviewFilePopup filesPreview={files} deleteFile={deletePreviewFile} />
